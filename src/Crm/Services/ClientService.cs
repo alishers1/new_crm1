@@ -5,6 +5,7 @@ namespace Crm.Service;
 public sealed class ClientService 
 {
     private List<Client> _clients = new();
+    
     public Client CreateClient(ClientInfo clientInfo)
     {
         Client newClient = new()
@@ -20,5 +21,10 @@ public sealed class ClientService
         _clients.Add(newClient);
 
         return newClient;
+    }
+
+    public Client GetClientByFirstAndLastName(string firstName, string lastName)
+    {
+        return _clients.FirstOrDefault(client => client.FirstName == firstName && client.LastName == lastName);
     }
 }

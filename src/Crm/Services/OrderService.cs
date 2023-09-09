@@ -3,6 +3,7 @@ namespace Crm.Service;
 
 public sealed class OrderService
 {
+    private List<Order> _orders = new();
     public Order CreateOrder(OrderInfo orderInfo)
     {
         Order newOrder = new()
@@ -15,6 +16,18 @@ public sealed class OrderService
             Address = orderInfo.Address
         };
 
+        _orders.Add(newOrder);
+
         return newOrder;
+    }
+
+    public Order GetOrderByDescription(string description)
+    {
+        return _orders.FirstOrDefault(order => order.Description == description);
+    }
+
+    public Order GetOrderById(long id)
+    {
+        return _orders.FirstOrDefault(order => order.Id == id);
     }
 }

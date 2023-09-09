@@ -2,21 +2,40 @@
 using Crm.Entities;
 using Crm.Service;
 
-Console.WriteLine("Enter command\nCreate Client - 1\nCreate Order - 2\n");
-int cmd = int.Parse(Console.ReadLine());
-
-
 ClientService clientService = new();
 OrderService orderService = new();
 
-if (cmd == 1)
+while (true) 
 {
-    CreateClient();
+    Console.WriteLine("Enter command\nCreate Client - 1\nCreate Order - 2\nFind client - 3\n"+
+    "Find Order by description - 4\nFind order by id - 5\n");
+    int cmd = int.Parse(Console.ReadLine());
+
+    if (cmd == 1)
+    {
+        CreateClient();
+    }
+    else if (cmd == 2) 
+    {
+        CreateOrder();
+    }
+    else if (cmd == 3)
+    {
+        FindClient();
+    }
+    else if (cmd == 4)
+    {
+        GetOrderByDescription();
+    }
+    else if (cmd == 5)
+    {
+        GetOrderById();
+    }
+    else {
+        Console.WriteLine("Invalid command");
+    }
 }
-else 
-{
-    CreateOrder();
-}
+
 
 void CreateClient() 
 {
@@ -78,4 +97,54 @@ void CreateOrder()
     Order newOrder = orderService.CreateOrder(orderInfo);
 
     Console.WriteLine(orderInfo.ToString());
+}
+
+void FindClient()
+{
+    Console.WriteLine("Enter client firstname: ");
+    string? firstName = Console.ReadLine();
+    Console.WriteLine("Enter client lastname: ");
+    string? lastName = Console.ReadLine();
+
+
+    Client foundClient = clientService.GetClientByFirstAndLastName(firstName, lastName);
+    if (foundClient != null)
+    {
+        Console.WriteLine(foundClient.ToString());
+    }
+    else {
+        Console.WriteLine("Not found client with provided firstname and lastname");
+    }
+}
+
+void GetOrderByDescription()
+{
+    Console.Write("Enter order description: ");
+    string? description = Console.ReadLine();
+
+    Order newOrder = orderService.GetOrderByDescription(description);
+    if (newOrder != null)
+    {
+        Console.WriteLine("Found order: ", newOrder.ToString);
+    } 
+    else 
+    {
+        Console.WriteLine("Not found order");
+    }
+}
+
+void GetOrderById()
+{
+    Console.Write("Enter order id: ");
+    long id = long.Parse(Console.ReadLine());
+
+    Order newOrder = orderService.GetOrderById(id);
+    if (newOrder != null)
+    {
+        Console.WriteLine("Found order: ", newOrder.ToString);
+    } 
+    else 
+    {
+        Console.WriteLine("Not found order");
+    }
 }
