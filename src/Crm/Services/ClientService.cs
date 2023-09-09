@@ -1,11 +1,12 @@
 using System.Runtime.CompilerServices;
 using Crm.Entities;
+using Crm.Interfaces;
 namespace Crm.Service;
 
-public sealed class ClientService 
+public sealed class ClientService : IClientService
 {
     private List<Client> _clients = new();
-    
+
     public Client CreateClient(ClientInfo clientInfo)
     {
         Client newClient = new()

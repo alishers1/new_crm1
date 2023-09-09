@@ -1,10 +1,10 @@
 using Crm.Entities;
+using Crm.Interfaces;
 namespace Crm.Service; 
 
-public sealed class OrderService
+public sealed class OrderService : OrderServiceBase
 {
-    private List<Order> _orders = new();
-    public Order CreateOrder(OrderInfo orderInfo)
+    public override Order CreateOrder(OrderInfo orderInfo)
     {
         Order newOrder = new()
         {
@@ -21,12 +21,12 @@ public sealed class OrderService
         return newOrder;
     }
 
-    public Order GetOrderByDescription(string description)
+    public  override Order GetOrderByDescription(string description)
     {
         return _orders.FirstOrDefault(order => order.Description == description);
     }
 
-    public Order GetOrderById(long id)
+    public override Order GetOrderById(long id)
     {
         return _orders.FirstOrDefault(order => order.Id == id);
     }
