@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B6836520-812
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crm", "src\Crm\Crm.csproj", "{4820DBD6-48DA-4152-AF22-70CAFAEB1227}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayHelper", "src\ArrayHelper\ArrayHelper.csproj", "{9FF1E99C-F43C-4B20-8897-DC3535CA5883}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,13 @@ Global
 		{4820DBD6-48DA-4152-AF22-70CAFAEB1227}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4820DBD6-48DA-4152-AF22-70CAFAEB1227}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4820DBD6-48DA-4152-AF22-70CAFAEB1227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FF1E99C-F43C-4B20-8897-DC3535CA5883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FF1E99C-F43C-4B20-8897-DC3535CA5883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FF1E99C-F43C-4B20-8897-DC3535CA5883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FF1E99C-F43C-4B20-8897-DC3535CA5883}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4820DBD6-48DA-4152-AF22-70CAFAEB1227} = {B6836520-8126-41BB-B0BC-FB74B31B9C72}
+		{9FF1E99C-F43C-4B20-8897-DC3535CA5883} = {B6836520-8126-41BB-B0BC-FB74B31B9C72}
 	EndGlobalSection
 EndGlobal
