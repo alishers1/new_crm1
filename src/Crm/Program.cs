@@ -2,44 +2,71 @@
 using Crm.Entities;
 using Crm.Service;
 
-ClientService clientService = new();
-CreateClient();
+Console.WriteLine("Enter command\nCreate Client - 1\nCreate Order - 2\n");
+int cmd = int.Parse(Console.ReadLine());
 
+
+ClientService clientService = new();
 OrderService orderService = new();
+
+if (cmd == 1)
+{
+    CreateClient();
+}
+else 
+{
+    CreateOrder();
+}
 
 void CreateClient() 
 {
+    Console.Write("Enter your FirstName: ");
     string? firstName = Console.ReadLine();
+    Console.Write("Enter your LastName: ");
     string? lastName = Console.ReadLine();
+    Console.Write("Enter your MiddleName: ");
     string? middleName = Console.ReadLine();
+    Console.Write("Enter your Age: ");
     short age = short.Parse(Console.ReadLine());
+    Console.Write("Enter your Passport Number: ");
     string? passportNumber = Console.ReadLine();
-    Gender gender = (Gender) int.Parse(Console.ReadLine());
+    Console.Write("Enter your Gender (Male or Female): ");
+    string? input = Console.ReadLine();
+    Gender gender;
+    if (Enum.TryParse(input, out gender))
+    {
+    }
 
-    Client newClient = clientService.CreateClient(
+    ClientInfo clientInfo = new(
         firstName,
-        lastName, 
+        lastName,
         middleName,
         age,
         passportNumber,
         gender
     );
 
-    Console.WriteLine("Client Name: {0}", string.Join(' ', newClient.FirstName, newClient.MiddleName, newClient.LastName));
-    Console.WriteLine("Client Age: {0}", newClient.Age);
-    Console.WriteLine("Client passport number: {0}", newClient.PassportNumber);
+    Client newClient = clientService.CreateClient(clientInfo);
+
+    Console.WriteLine(newClient.ToString());
 }
 
 void CreateOrder()
 {
+    Console.Write("Enter order Id: ");
     long id = long.Parse(Console.ReadLine());
+    Console.Write("Enter order description: ");
     string? description = Console.ReadLine();
+    Console.Write("Enter order price: ");
     double price = double.Parse(Console.ReadLine());
+    Console.Write("Enter order date: ");
     DateTime date = DateTime.Parse(Console.ReadLine());
+    Console.Write("Enter order delivery type (Express, Free, Standart): ");
     DeliveryType delivery = (DeliveryType) int.Parse(Console.ReadLine());
+    Console.Write("Enter order address: ");
     string? address = Console.ReadLine();
 
-    Order newOrder = orderService.CreateOrder(
+    OrderInfo orderInfo = new(
         id,
         description,
         price,
@@ -48,6 +75,7 @@ void CreateOrder()
         address
     );
 
-    Console.WriteLine("Order Id: {0}", newOrder.Id);
-    Console.WriteLine("Order Description: {0}", newOrder.Description);  
+    Order newOrder = orderService.CreateOrder(orderInfo);
+
+    Console.WriteLine(orderInfo.ToString());
 }

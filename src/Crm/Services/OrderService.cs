@@ -3,23 +3,18 @@ namespace Crm.Service;
 
 public sealed class OrderService
 {
-    public Order CreateOrder(
-        long id,
-        string description, 
-        double price,
-        DateTime date,
-        DeliveryType delivery,
-        string address
-    )
+    public Order CreateOrder(OrderInfo orderInfo)
     {
-        return new()
+        Order newOrder = new()
         {
-            Id = id,
-            Description = description,
-            Price = price,
-            Date = date,
-            Delivery = delivery,
-            Address = address
+            Id = orderInfo.Id,
+            Description = orderInfo.Description,
+            Price = orderInfo.Price,
+            Date = orderInfo.Date,
+            Delivery = orderInfo.Delivery,
+            Address = orderInfo.Address
         };
+
+        return newOrder;
     }
 }
