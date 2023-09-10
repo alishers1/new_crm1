@@ -8,7 +8,7 @@ OrderService orderService = new();
 while (true) 
 {
     Console.WriteLine("Enter command\nCreate Client - 1\nCreate Order - 2\nFind client - 3\n"+
-    "Find Order by description - 4\nFind order by id - 5\n");
+    "Find Order by description - 4\nFind order by id - 5\nChange client first and last name - 6\n");
     int cmd = int.Parse(Console.ReadLine());
 
     if (cmd == 1)
@@ -147,4 +147,18 @@ void GetOrderById()
     {
         Console.WriteLine("Not found order");
     }
+}
+
+void ChangeClientFirstAndLastName()
+{
+    Console.Write("Enter client id: ");
+    ulong id = ulong.Parse(Console.ReadLine());
+    Console.Write("Enter new client FirstName: ");
+    string? newFirstName = Console.ReadLine();
+    Console.Write("Enter new client LastName: ");
+    string? newLastName = Console.ReadLine();
+
+    Client client = clientService.ChangeClientFirstAndLastName(id, newFirstName, newLastName);
+
+    Console.WriteLine(client.ToString());
 }

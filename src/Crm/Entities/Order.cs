@@ -34,6 +34,11 @@ public sealed class Order
     }
     public string? Address { get; set; }
 
+    public Order(string description)
+    {
+        Description = description;
+    }
+
     public override string ToString()
     {
         return $"Order Id: {Id}\n"+

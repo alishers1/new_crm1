@@ -1,3 +1,5 @@
+using System.Data.Common;
+
 namespace Crm.Entities;
 
 public sealed class Client 
@@ -12,6 +14,7 @@ public sealed class Client
  
 
 
+    public ulong Id { get; init; }
     public string? FirstName { 
         get => _firstname ?? string.Empty; 
         init => _firstname = value is { Length: > 0} ? value : throw new ArgumentOutOfRangeException(nameof(value)); 
@@ -70,9 +73,16 @@ public sealed class Client
     //     Age = age;
     // }
 
+    public Client(string firstName, string lastName)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+    }
+
     public override string ToString()
     {
-        return $"Client Name: {FirstName} {LastName}\n" +
+        return $"Client ID: {Id}\n" +
+               $"Client Full Name: {FirstName} {LastName}\n" +
                $"Middle Name: {MiddleName}\n" +
                $"Age: {Age}\n" +
                $"Passport Number: {PassportNumber}\n" +
