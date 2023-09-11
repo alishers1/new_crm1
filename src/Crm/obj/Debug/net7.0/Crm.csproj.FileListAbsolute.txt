@@ -1,0 +1,15 @@
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\bin\Debug\net7.0\Crm.exe
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\bin\Debug\net7.0\Crm.deps.json
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\bin\Debug\net7.0\Crm.runtimeconfig.json
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\bin\Debug\net7.0\Crm.dll
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\bin\Debug\net7.0\Crm.pdb
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\Crm.csproj.AssemblyReference.cache
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\Crm.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\Crm.AssemblyInfoInputs.cache
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\Crm.AssemblyInfo.cs
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\Crm.csproj.CoreCompileInputs.cache
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\Crm.dll
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\refint\Crm.dll
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\Crm.pdb
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\Crm.genruntimeconfig.cache
+C:\dev\C# Alif Academy - 2023\new_crm1\src\Crm\obj\Debug\net7.0\ref\Crm.dll
