@@ -68,4 +68,50 @@ public sealed class OrderService : OrderServiceBase
             throw new ArgumentException($"Order with ID {id} not found");
         }
     }
+
+    public Order ChangeOrderState(long id, OrderState newState)
+    {
+        Order newOrder = _orders.FirstOrDefault(order => order.Id == id);
+
+        if (newOrder != null) 
+        {
+            newOrder = new Order(newState)
+            {
+                Id = newOrder.Id,
+                Description = newOrder.Description,
+                Price = newOrder.Id,
+                Date = newOrder.Date,
+                Delivery = newOrder.Delivery,
+                Address = newOrder.Address,
+            };
+
+            int index = _orders.FindIndex(order => order.Id == id);
+
+            if (index >= 0)
+            {
+                _orders[index] = newOrder;
+            }
+        }
+        return newOrder;
+    }
+
+    public int GetTotalOrderCount()
+    {
+        return _orders.Count();
+    }
+
+    public int GetPendingOrderCount()
+    {
+        return _orders.Count(order => order.State == OrderState.Pending);
+    }
+
+    public int GetApprovedOrderCount()
+    {
+        return _orders.Count(order => order.State == OrderState.Approved);
+    }
+
+    public int GetCancelledOrderCount()
+    {
+        return _orders.Count(order => order.State == OrderState.Cancelled);
+    }
 }

@@ -68,4 +68,9 @@ public sealed class ClientService : IClientService
             throw new ArgumentException($"Client with id - {id} not found");
         }
     }
+
+    public int GetTotalClientCount()
+    {
+        return _clients.Count();
+    }
 }

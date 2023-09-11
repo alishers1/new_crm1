@@ -32,11 +32,18 @@ public sealed class Order
             }
         }
     }
-    public string? Address { get; set; }
+    public string? Address { get; init; }
+
+    public OrderState State { get; init; }
 
     public Order(string description)
     {
         Description = description;
+    }
+
+    public Order(OrderState newState)
+    {
+        State = newState;
     }
 
     public override string ToString()
